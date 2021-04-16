@@ -2,7 +2,7 @@ from __future__ import print_function
 import datetime
 import os
 import re
-import requests_kerberos
+import requests_gssapi
 import six
 import textwrap
 import time
@@ -899,7 +899,7 @@ https://access.redhat.com/articles/11258")
             # Handle weird interaction we get in this particular case
             try:
                 r = self._post(url, data=pdata)
-            except requests_kerberos.exceptions.MutualAuthenticationError:
+            except requests_gssapi.exceptions.MutualAuthenticationError:
                 pass
             self._processResponse(r)
 
